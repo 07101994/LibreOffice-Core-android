@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ This file is part of the LibreOffice project.
+
+ This Source Code Form is subject to the terms of the Mozilla Public
+ License, v. 2.0. If a copy of the MPL was not distributed with this
+ file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- The toolbar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:background="@color/toolbar_background"
+        app:theme="@style/LibreOfficeTheme.Toolbar"
+        tools:theme="@style/LibreOfficeTheme.Toolbar"
+        app:popupTheme="@style/LibreOfficeTheme">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- The content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:divider="@color/doorhanger_divider_light"
+                android:showDividers="middle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/header_recents"
+                    android:text="@string/title_recents"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"/>
+
+                <!--Recent files-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_recent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/header_browser"
+                    android:text="@string/title_browser"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:padding="16dp"
+                    android:textStyle="bold" />
+
+
+                <!--Document browser-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/file_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background_normal"
+                    android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- The navigation drawer -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/background_normal"
+        app:menu="@menu/navigation_menu"
+        android:theme="@style/LibreOfficeTheme.NavigationView" />
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
